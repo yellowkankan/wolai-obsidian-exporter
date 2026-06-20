@@ -1,0 +1,34 @@
+# Environment
+.env
+.env.*
+!.env.example
+config.toml
+secrets.toml
+
+# Export outputs
+exports/
+output/
+tmp/
+.cache/
+.wolai-export-state/
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo

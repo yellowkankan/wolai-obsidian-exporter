@@ -1,0 +1,9 @@
+{
+  "id": "image_1",
+  "type": "image",
+  "media": {
+    "type": "internal",
+    "download_url": "https://example.invalid/media/image.png?signature=redacted"
+  },
+  "children": {"ids": []}
+}

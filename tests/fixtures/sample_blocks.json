@@ -1,0 +1,43 @@
+[
+  {
+    "id": "page_demo",
+    "type": "page",
+    "content": [{"type": "text", "title": "Demo Page"}],
+    "children": {"ids": ["heading_1", "text_1", "image_1", "todo_1", "code_1"]}
+  },
+  {
+    "id": "heading_1",
+    "type": "heading",
+    "level": 2,
+    "content": [{"type": "text", "title": "Section"}],
+    "children": {"ids": []}
+  },
+  {
+    "id": "text_1",
+    "type": "text",
+    "content": [{"type": "text", "title": "Hello Wolai"}],
+    "children": {"ids": []}
+  },
+  {
+    "id": "image_1",
+    "type": "image",
+    "caption": "Sample image",
+    "content": [],
+    "media": {"type": "internal"},
+    "children": {"ids": []}
+  },
+  {
+    "id": "todo_1",
+    "type": "todo_list",
+    "checked": true,
+    "content": [{"type": "text", "title": "Done task"}],
+    "children": {"ids": []}
+  },
+  {
+    "id": "code_1",
+    "type": "code",
+    "language": "python",
+    "content": [{"type": "text", "title": "print('hi')"}],
+    "children": {"ids": []}
+  }
+]

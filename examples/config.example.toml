@@ -1,0 +1,9 @@
+[wolai]
+token_env = "WOLAI_TOKEN"
+api_base_url = "https://api.wolai.com/v1/mcp"
+
+[export]
+default_output = "./exports/WolaiMirror"
+link_style = "markdown"
+max_depth = 10
+download_assets = true
