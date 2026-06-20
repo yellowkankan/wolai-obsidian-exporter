@@ -1,23 +1,31 @@
 # Wolai Obsidian Exporter
 
-Local-first CLI for exporting Wolai pages into an Obsidian-friendly folder.
+I built this while moving an old Wolai knowledge base into Obsidian.
 
-It exports:
+The annoying part was not exporting text. The hard part was preserving the images, files, and videos: Wolai media links are signed URLs and can expire quickly. This tool mirrors Wolai pages into a local folder, refreshes media URLs right before download, and rewrites the Markdown to point at local assets.
 
-- Markdown pages
-- Raw JSON snapshots
-- Images, files, videos, and audio as local assets
-- Index, asset, failure, and sensitive-info reports
-- Resume state for interrupted exports
+It is meant for people who want a local archive they can search, back up, and open in Obsidian without depending on Wolai's temporary media links.
 
 This project is unofficial and is not affiliated with Wolai.
 
-## What it does
+## Features
 
-Wolai media URLs can expire quickly, so this exporter refreshes each media block right before downloading the asset.
+- Export Wolai pages as Markdown.
+- Save raw JSON snapshots for later debugging or re-rendering.
+- Download images, files, videos, and audio as local assets.
+- Refresh media blocks before downloading expired signed URLs.
+- Resume interrupted exports.
+- Generate index, asset, failure, and sensitive-info reports.
+- Keep tokens and signed URLs out of Markdown and reports.
+
+## Why this exists
+
+A direct copy from Wolai to Markdown is not enough. If the original page has screenshots, design references, videos, spreadsheets, or training files, a text-only export loses most of the value.
+
+This exporter treats attachments as first-class data:
 
 ```text
-get page blocks
+read page blocks
 → render Markdown
 → find media blocks
 → refresh each media block
@@ -32,12 +40,12 @@ get page blocks
 - It does not bypass access controls.
 - It does not read browser cookies.
 - It does not upload your data anywhere.
-- It does not clean or rewrite your notes into knowledge cards.
+- It does not turn your notes into cleaned knowledge cards.
 
 ## Install for local development
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/yellowkankan/wolai-obsidian-exporter.git
 cd wolai-obsidian-exporter
 python3 -m venv .venv
 source .venv/bin/activate
@@ -87,9 +95,11 @@ WolaiMirror/
     state.json
 ```
 
+Markdown uses relative asset links by default, so the folder can be moved or backed up as one archive.
+
 ## Asset handling
 
-Media blocks are downloaded into local folders and referenced from Markdown by relative paths. Signed URLs are not written into Markdown or reports.
+Media blocks are downloaded into local folders and referenced from Markdown by relative paths. Signed URLs are refreshed before download and are not written into Markdown or reports.
 
 ## Resume
 
@@ -117,4 +127,4 @@ python scripts/check_no_secrets.py
 
 ## Status
 
-This is an early local-first exporter. The API adapter may need adjustment depending on whether your Wolai account uses the public OpenAPI token or the MCP token endpoint.
+This is an early exporter. The current implementation targets Wolai's MCP endpoint and has been tested on a small sample page. More block types and database export improvements will be added as real migration cases come up.

@@ -2,6 +2,8 @@
 
 ## Highlights
 
+This first version focuses on a practical migration problem: preserving Wolai pages together with their local assets for Obsidian.
+
 - Export Wolai pages into Obsidian-friendly Markdown.
 - Save raw JSON snapshots for archival and debugging.
 - Download images, files, videos, and audio locally.
@@ -12,7 +14,7 @@
 ## Install
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/yellowkankan/wolai-obsidian-exporter.git
 cd wolai-obsidian-exporter
 python3 -m venv .venv
 source .venv/bin/activate
